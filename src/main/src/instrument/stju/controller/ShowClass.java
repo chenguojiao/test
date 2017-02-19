@@ -63,9 +63,9 @@ public class ShowClass extends BaseController {
             for (int i = 0; i < 3; i++) {
                 int class_id = maxtime+1+i;
                 Record cs = Db.findById("class", class_id);
-                String class_name = cs.getStr("class_name");
-                String class_pic_url = cs.getStr("class_pic_url");
-                String teacher_name = cs.getStr("teacher_name");
+                String class_name = cs.getStr("className");
+                String class_pic_url = cs.getStr("classPicUrl");
+                String teacher_name = cs.getStr("teacherName");
                 String level = cs.getStr("level");
                 String available = "false";
                 String local = cs.getStr("local");

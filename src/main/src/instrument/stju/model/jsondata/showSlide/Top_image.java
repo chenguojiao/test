@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Top_image implements Serializable {
     private String top_image;
     private String class_name;
-    private String jump_url;
+//    private String jump_url;
 
     public String getTop_image() {
         return top_image;
@@ -26,11 +26,11 @@ public class Top_image implements Serializable {
         this.class_name = class_name;
     }
 
-    public String getJump_url() {
-        return jump_url;
-    }
-
-    public void setJump_url(String jump_url) {
-        this.jump_url = jump_url;
-    }
+//    public String getJump_url() {
+//        return jump_url;
+//    }
+//
+//    public void setJump_url(String jump_url) {
+//        this.jump_url = jump_url;
+//    }
 }

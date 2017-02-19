@@ -18,19 +18,20 @@ public class _MappingKit {
 	public static void mapping(ActiveRecordPlugin arp) {
 		arp.addMapping("calendar", "id", Calendar.class);
 		arp.addMapping("class", "id", Class.class);
-		arp.addMapping("classTimeFeedback", "id", ClassTimeFeedback.class);
 		arp.addMapping("classdetail", "id", Classdetail.class);
 		arp.addMapping("classorder", "id", Classorder.class);
 		arp.addMapping("classstudent", "id", Classstudent.class);
+		arp.addMapping("classtimefeedback", "id", ClassTimeFeedback.class);
 		arp.addMapping("fileurl", "id", Fileurl.class);
 		arp.addMapping("helpcenter", "id", Helpcenter.class);
-		arp.addMapping("insAlbum", "id", InsAlbum.class);
-		arp.addMapping("insAttribute", "id", InsAttribute.class);
+		arp.addMapping("insalbum", "id", InsAlbum.class);
+		arp.addMapping("insattribute", "id", InsAttribute.class);
 		arp.addMapping("insorder", "id", Insorder.class);
 		arp.addMapping("inspic", "id", Inspic.class);
 		arp.addMapping("instrument", "id", Instrument.class);
-		arp.addMapping("orderIns", "id", OrderIns.class);
-		arp.addMapping("receiverAddress", "id", ReceiverAddress.class);
+		arp.addMapping("orderins", "id", OrderIns.class);
+		arp.addMapping("receiveraddress", "id", ReceiverAddress.class);
+		arp.addMapping("slideshow", "id", SlideShow.class);
 		arp.addMapping("suggestion", "id", Suggestion.class);
 		arp.addMapping("teacher", "id", Teacher.class);
 		arp.addMapping("userinfo", "id", Userinfo.class);
