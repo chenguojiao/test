@@ -39,13 +39,17 @@ public class Login extends BaseController {
 
         }
         //sql
-        String sql = "select * from userinfo where username ="+"\'"+username+"\' " + "and password = " +"\""+ password +"\"";
+        String sql = "select * from userinfo where username ="+"\'"+username+"\' " + "and password = " +"\'"+ password +"\'";
         List<Record> users = Db.find(sql);
-        if (users.size() >0){
+        if (users.size() >0) {
             renderText("true");
-        }else {
+        }
+
+        if (users.size() ==0||users==null) {
             renderText("false");
         }
+
+
 
 // if (users.size() == 0) {
 //            ljson.setType(1);
