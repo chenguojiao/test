@@ -39,7 +39,7 @@ public class Login extends BaseController {
 
         }
         //sql
-        String sql = "select * from userinfo where username =" + "\'" + username + "\' " + "and password = " + "\"" + password + "\"";
+        String sql = "select * from userinfo where username =" + "\'" + username + "\' " + "and password = " + "\'" + password + "\'";
         List<Record> users = Db.find(sql);
         LoginJson ljson = new LoginJson();
         Gson gson = new Gson();
