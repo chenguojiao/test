@@ -47,14 +47,14 @@ public class ShowInstrument extends BaseController {
             Record instrument = Db.findById("instrument", ins_id);
             Insinfo ins = new Insinfo();
             String name = instrument.getStr("name");
-            int pre_price = instrument.getInt("pre_price");
-            int now_price = instrument.getInt("now_price");
+            int pre_price = instrument.getInt("prePrice");
+            int now_price = instrument.getInt("nowPrice");
             String type = instrument.getStr("type");
             String des = instrument.getStr("description");
-            String sql = "select * from inspic where ins_id =" + String.valueOf(ins_id);
+            String sql = "select * from insPic where insId =" + String.valueOf(ins_id);
             List<Record> imageList = Db.find(sql);
             Record inspic = imageList.get(0);
-            String pic_url = inspic.getStr("pic_url");
+            String pic_url = inspic.getStr("picUrl");
             ins.setId(ins_id);
             ins.setName(name);
             ins.setNow_price(now_price);

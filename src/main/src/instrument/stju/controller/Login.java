@@ -32,15 +32,20 @@ public class Login extends BaseController {
             jsonobj = new JSONObject(js);
 
             username = jsonobj.getString("username");
+            System.out.println("name" + username);
 
             password = jsonobj.getString("password");
-
+            System.out.println("password" + password);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         //sql
-        String sql = "select * from userinfo where username =" + "\'" + username + "\' " + "and password = " + "\'" + password + "\'";
+        String sql = "select * from userinfo where username ="
+                + "\'" + username + "\' "
+                + "and password = " + "\'" + password + "\'";
+        System.out.println(sql);
         List<Record> users = Db.find(sql);
+        System.out.println(users.size());
         LoginJson ljson = new LoginJson();
         Gson gson = new Gson();
         if (users.size() > 0) {

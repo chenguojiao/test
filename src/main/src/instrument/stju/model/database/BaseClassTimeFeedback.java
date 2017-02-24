@@ -64,5 +64,12 @@ public abstract class BaseClassTimeFeedback<M extends BaseClassTimeFeedback<M>> 
 	public java.lang.String getVideoUrl() {
 		return get("videoUrl");
 	}
+	public void setName(java.lang.String name) {
+		set("name", name);
+	}
+
+	public java.lang.String getName() {
+		return get("name");
+	}
 
 }

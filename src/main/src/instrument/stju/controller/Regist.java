@@ -16,7 +16,7 @@ import java.util.List;
  * Created by huangzhiwei on 16/10/19.
  */
 public class Regist extends BaseController {
-    public void  api_regist() throws IOException {
+    public void api_regist() throws IOException {
 
         StringBuilder jsonstr = new StringBuilder();
         BufferedReader reader = this.getRequest().getReader();
@@ -25,7 +25,7 @@ public class Regist extends BaseController {
         String password = null;
 
 
-        while((line = reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             jsonstr.append(line);
         }
         reader.close();
@@ -37,31 +37,31 @@ public class Regist extends BaseController {
             username = jsonobj.getString("username");
 
             password = jsonobj.getString("password");
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
 
-        String sql = "select * from userinfo where username ="+"\'"+username+"\'";
-       List<Record> users = Db.find(sql);
+        String sql = "select * from userinfo where username =" + "\'" + username + "\'";
+        List<Record> users = Db.find(sql);
         RegistJson rjson = new RegistJson();
         Gson gson = new Gson();
-       if (users.size()>0){
+        if (users.size() > 0) {
 
-          rjson.setId(-1);
-           rjson.setResult("no");
+            rjson.setId(-1);
+            rjson.setResult("no");
 
 
-       }
-       if (users.size()==0){
-           Record user = new Record().set("username",username ).set("password", password).set("headpic","localhost");
-           Db.save("userinfo",user);
-           String getid = "select * from userinfo where username ="+"\'"+username+"\'";
-            List<Record> userid =  Db.find(getid);
-           int id =userid.get(0).getInt("id");
-          rjson.setId(id);
-           rjson.setResult("yes");
-       }
+        }
+        if (users.size() == 0) {
+            Record user = new Record().set("username", username).set("password", password).set("headpic", "localhost");
+            Db.save("userinfo", user);
+            String getid = "select * from userinfo where username =" + "\'" + username + "\'";
+            List<Record> userid = Db.find(getid);
+            int id = userid.get(0).getInt("id");
+            rjson.setId(id);
+            rjson.setResult("yes");
+        }
         renderText(gson.toJson(rjson));
 
 

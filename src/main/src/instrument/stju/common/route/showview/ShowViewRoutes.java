@@ -18,6 +18,13 @@ public class ShowViewRoutes extends Routes {
         add("/buyOrder", BuyInsOrder.class);
         add("/ReservationOrder", ReservationOrder.class);
         add("showSystemMessage",ShowSystemMessage.class);
+        add("/helpcenter",HelpCenter.class);
+        add("/classdetail",ShowClassDetail.class);
+        add("/receiverAddress",ReceiverAddress.class);
+        add("/classfeedback",ClassFeedBack.class);
+        add("/buyInstrument",BuyInsOrder.class);
+        add("/complaint",Complaint.class);
 
+        add("/feedback",StudentFeedback.class);
     }
 }

@@ -17,7 +17,7 @@ import java.util.List;
  * Created by huangzhiwei on 16/11/3.
  */
 public class BuyInsOrder extends BaseController {
-    public void api_buyInsOrder() throws IOException {
+    public void api_buyinstrument() throws IOException {
         StringBuilder jsonstr = new StringBuilder();
         BufferedReader reader = this.getRequest().getReader();
         String line = null;
@@ -39,7 +39,7 @@ public class BuyInsOrder extends BaseController {
         }
 
 
-        String sql = "select * from insorder where usr_id ="+String.valueOf(user_id);
+        String sql = "select * from insorder where usrId ="+String.valueOf(user_id);
         OrderList orderList = new OrderList();
         List<InsList>  insList = orderList.getOrder_list();
 
@@ -48,7 +48,7 @@ public class BuyInsOrder extends BaseController {
          for (int i =0;i<orders_id.size();i++){
              Record insOrder = orders_id.get(i);
              int order_id = insOrder.getInt("id");
-             String sql1 = "select * from order_ins where order_id ="+String.valueOf(order_id);
+             String sql1 = "select * from orderIns where orderId ="+String.valueOf(order_id);
              List<Record> ins_ids = Db.find(sql1);
              InsList infolist = new InsList();
              List<InsInfo>  info = infolist.getList();
@@ -59,18 +59,18 @@ public class BuyInsOrder extends BaseController {
 
              for (int j=0;j<ins_ids.size();j++){
                  Record order_ins = ins_ids.get(j);
-                 System.out.println(order_ins.getInt("ins_id"));
-                 Record instrument = Db.findById("instrument",order_ins.getInt("ins_id"));
+                 System.out.println(order_ins.getInt("insId"));
+                 Record instrument = Db.findById("instrument",order_ins.getInt("insId"));
                  // Record instrument = Db.findById("instrument",2);
 
                  InsInfo insInfo = new InsInfo();
                  insInfo.setName(instrument.getStr("name"));
-                 insInfo.setNow_price(instrument.getInt("now_price"));
+                 insInfo.setNow_price(instrument.getInt("nowPrice"));
                  insInfo.setType(instrument.getStr("type"));
-                 String sql2 = "select * from inspic where ins_id ="+String.valueOf(instrument.getInt("id"));
+                 String sql2 = "select * from insPic where insId ="+String.valueOf(instrument.getInt("id"));
                  List<Record>  imageList = Db.find(sql2);
                  Record inspic = imageList.get(0);
-                 insInfo.setPic_url(inspic.getStr("pic_url"));
+                 insInfo.setPic_url(inspic.getStr("picUrl"));
                   info.add(insInfo);
 
 

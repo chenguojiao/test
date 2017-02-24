@@ -41,11 +41,11 @@ public abstract class BaseReceiverAddress<M extends BaseReceiverAddress<M>> exte
 		return get("receiver");
 	}
 
-	public void setUserId(java.lang.String userId) {
+	public void setUserId(java.lang.Integer userId) {
 		set("userId", userId);
 	}
 
-	public java.lang.String getUserId() {
+	public java.lang.Integer getUserId() {
 		return get("userId");
 	}
 

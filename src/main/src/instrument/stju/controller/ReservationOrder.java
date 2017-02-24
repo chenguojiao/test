@@ -44,26 +44,26 @@ public class ReservationOrder extends BaseController {
         }catch (Exception e) {
             System.out.println("解析json失败");
         }
-        String sql = "select * from classorder where user_id = "+String.valueOf(user_id);
+        String sql = "select * from classorder where userId = "+String.valueOf(user_id);
         List<Record> class_ides = Db.find(sql);
         ReservationList reservationList = new ReservationList();
         List<ShowReservationJson> list = reservationList.getList();
         for (int i=0;i<class_ides.size();i++){
             Record class_message = class_ides.get(i);
             ShowReservationJson showReservationJson = new ShowReservationJson();
-             int class_id = class_message.getInt("class_id");
+             int class_id = class_message.getInt("classId");
              //double class_price =class_message.getDouble("price");
              String date = class_message.getStr("date");
              int situation = class_message.getInt("situation");
-            String sql2 = "select * from teacher where class_id ="+String.valueOf(class_id);
+            String sql2 = "select * from teacher where classId ="+String.valueOf(class_id);
             List<Record> teachers = Db.find(sql2);
             Record teacher = teachers.get(0);
-            String teacher_name = teacher.getStr("teacher_name");
+            String teacher_name = teacher.getStr("teacherName");
             Record myclass = Db.findById("class",class_id);
-            String class_pic_url = myclass.getStr("class_pic_url");
-             int class_price = myclass.getInt("class_price");
-             String class_name = myclass.getStr("class_name");
-            int class_time = myclass.getInt("class_time");
+            String class_pic_url = myclass.getStr("classPicUrl");
+             int class_price = myclass.getInt("classPrice");
+             String class_name = myclass.getStr("className");
+            int class_time = myclass.getInt("classTime");
              showReservationJson.setSituation(situation);
             showReservationJson.setClass_name(class_name);
             showReservationJson.setClass_pic_url(class_pic_url);

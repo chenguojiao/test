@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by huangzhiwei on 16/11/1.
  */
-public class FeedBack extends BaseController {
+public class ClassFeedBack extends BaseController {
     public void api_feedBack() throws IOException {
 
         StringBuilder jsonstr = new StringBuilder();
@@ -49,8 +49,8 @@ public class FeedBack extends BaseController {
 
         }
 
-        Record class_time_feedback = new Record().set("class_id",class_id).set("time_id",time_id).set("user_id",user_id).set("feedback",feedback).set("date",date);
-        Db.save("class_time_feedback",class_time_feedback);
+        Record class_time_feedback = new Record().set("classId",class_id).set("timeId",time_id).set("userId",user_id).set("feedback",feedback).set("date",date);
+        Db.save("classTimeFeedback",class_time_feedback);
         FeedBackJson result = new FeedBackJson();
          result.setResult("ok");
         Gson gson = new Gson();

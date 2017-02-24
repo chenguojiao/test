@@ -48,9 +48,9 @@ public class BuyInstrument extends BaseController {
         String date = firmOrder.getDate();
         int user_id = firmOrder.getUser_id();
         Record insorder = new Record().set("price",price).set("method",method).set("reveiverID",receiverAddressID);
-        insorder.set("message",message).set("ordernum",ordernum).set("situation",situation).set("date",date).set("usr_id",user_id);
-        Db.save("insorder",insorder);
-        Db.update("insorder", insorder);
+        insorder.set("message",message).set("orderNum",ordernum).set("situation",situation).set("date",date).set("usrId",user_id);
+        Db.save("insOrder",insorder);
+        Db.update("insOrder", insorder);
 
         //int order_id = insorder.getInt("id");
        /* String sql = "select * from insorder where id >0";
@@ -61,8 +61,8 @@ public class BuyInstrument extends BaseController {
             InsOrder insOrder = list.get(i);
             int ins_id = insOrder.getIns_id();
             String attribute = insOrder.getArtibute();
-            Record order_ins = new Record().set("order_id",order_id).set("ins_id",ins_id).set("attribute",attribute);
-            Db.save("order_ins",order_ins);
+            Record order_ins = new Record().set("orderId",order_id).set("insId",ins_id).set("attribute",attribute);
+            Db.save("orderIns",order_ins);
         }
         ResultFirmOrder resultFirmOrder = new ResultFirmOrder();
         resultFirmOrder.setResult("yes");

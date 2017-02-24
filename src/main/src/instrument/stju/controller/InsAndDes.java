@@ -25,15 +25,15 @@ public class InsAndDes extends BaseController {
             List<Inspic> qinspics = inspics.getPics();
 
             int ins_id = PicAndDes[i];
-            List<Record> inspic = Db.find("select * from  inspic where ins_id ="+String.valueOf(ins_id));
+            List<Record> inspic = Db.find("select * from  insPic where insId ="+String.valueOf(ins_id));
             for ( int j =0; j<inspic.size();j++){
              Inspic pic_url = new Inspic();
-                   pic_url.setPic_url(inspic.get(j).getStr("pic_url"));
+                   pic_url.setPic_url(inspic.get(j).getStr("picUrl"));
                     qinspics.add(pic_url);
             }
             Record instrument = Db.findById("instrument",ins_id);
             inspics.setDes(instrument.getStr("description"));
-            inspics.setNow_price(instrument.getInt("now_price"));
+            inspics.setNow_price(instrument.getInt("nowPrice"));
             inspics.setName(instrument.getStr("name"));
 
             qinsList.add(inspics);

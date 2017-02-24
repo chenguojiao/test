@@ -25,8 +25,8 @@ public class ShowAlbum extends BaseController {
 
             Album album =new Album();
 
-            Record  ins_album = Db.findById("ins_album",Albums[i]);
-            String album_url = ins_album.getStr("album_url");
+            Record  ins_album = Db.findById("insAlbum",Albums[i]);
+            String album_url = ins_album.getStr("albumUrl");
            album.setAlbum_url(album_url);
             albumList.add(album);
 
