@@ -39,10 +39,10 @@ public class ShowClassDetail extends BaseController {
         } catch (Exception e) {
 
         }
-//        String sql = "select * from class where id ="
-//                + "\'" + Class_id + "\' ";
+        String sql = "select * from classTimeFeedback where id ="
+                + "\'" + Class_id + "\' ";
 //        System.out.println(sql);
-//        List<Record> course = Db.find(sql);
+        List<Record> classTime = Db.find(sql);
 //        System.out.println(course.size());
         Record course = Db.findById("class", Class_id);
 //        Insinfo ins = new Insinfo();
@@ -53,7 +53,8 @@ public class ShowClassDetail extends BaseController {
         int class_time = course.getInt("classTime");
         String class_location = course.getStr("local");
         String class_remark = course.getStr("remark");
-        int feedBackNum = course.getInt("feedbackNum");
+//        int feedBackNum = course.getInt("feedbackNum");
+        int feedBackNum = classTime.size();
         ShowClassDetailJson classDetailJson = new ShowClassDetailJson();
         classDetailJson.setClass_id(Integer.parseInt(Class_id));
         classDetailJson.setClass_name(class_name);

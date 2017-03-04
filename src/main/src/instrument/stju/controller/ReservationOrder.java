@@ -44,7 +44,7 @@ public class ReservationOrder extends BaseController {
         }catch (Exception e) {
             System.out.println("解析json失败");
         }
-        String sql = "select * from classorder where userId = "+String.valueOf(user_id);
+        String sql = "select * from classOrder where userId = "+"\'" + user_id + "\'";
         List<Record> class_ides = Db.find(sql);
         ReservationList reservationList = new ReservationList();
         List<ShowReservationJson> list = reservationList.getList();

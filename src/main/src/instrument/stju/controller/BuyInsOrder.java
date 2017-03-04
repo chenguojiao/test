@@ -39,7 +39,7 @@ public class BuyInsOrder extends BaseController {
         }
 
 
-        String sql = "select * from insorder where usrId ="+String.valueOf(user_id);
+        String sql = "select * from insOrder where usrId ="+String.valueOf(user_id);
         OrderList orderList = new OrderList();
         List<InsList>  insList = orderList.getOrder_list();
 

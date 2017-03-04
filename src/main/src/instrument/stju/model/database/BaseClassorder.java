@@ -97,4 +97,12 @@ public abstract class BaseClassorder<M extends BaseClassorder<M>> extends Model<
 		return get("remark");
 	}
 
+	public void setClassName(java.lang.String className) {
+		set("className", className);
+	}
+
+	public java.lang.String getClassName() {
+		return get("className");
+	}
+
 }

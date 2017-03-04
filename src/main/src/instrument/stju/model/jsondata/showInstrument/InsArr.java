@@ -8,15 +8,16 @@ import java.util.List;
  * Created by huangzhiwei on 16/10/28.
  */
 public class InsArr {
-    private List<String> typeList;
+    public List<String> typeList;
    private List<Insinfo> insArr;
     public InsArr(){
         insArr =new ArrayList<Insinfo>();
         typeList = new ArrayList<String>();
-        typeList.add("cello");
-        typeList.add("violin");
-        typeList.add("sax");
-        typeList.add("piano");
+        typeList.add("钢琴");
+        typeList.add("小提琴");
+        typeList.add("萨克斯");
+        typeList.add("吉他");
+//        String type = typeList.get(0);
     }
     public List<Insinfo> getInsArr() {
         return insArr;

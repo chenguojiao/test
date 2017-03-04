@@ -41,7 +41,7 @@ public class ShowSystemMessage extends BaseController {
             System.out.println("解析json失败");
          }
 
-          String sql = "select * from systemmessage where id >0";
+          String sql = "select * from systemMessage where id >0";
         List<Record> systemMessages = Db.find(sql);
         SystemMessageList messageList = new SystemMessageList();
         List<SystemMessageJson> list = messageList.getList();
