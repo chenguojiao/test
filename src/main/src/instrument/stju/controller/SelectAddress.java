@@ -42,6 +42,7 @@ public class SelectAddress extends BaseController {
         String sql = "select * from receiverAddress where userId = "
                 + "\'" + user_id + "\'";
         List<Record> info = Db.find(sql);
+        System.out.println(info.size());
         SelectAddressJson sJson = new SelectAddressJson();
         List<ContentJson> Content = sJson.getContent();
         ContentJson cJson = new ContentJson();

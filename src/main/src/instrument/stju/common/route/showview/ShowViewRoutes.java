@@ -20,11 +20,15 @@ public class ShowViewRoutes extends Routes {
         add("showSystemMessage",ShowSystemMessage.class);
         add("/helpcenter",HelpCenter.class);
         add("/classdetail",ShowClassDetail.class);
-        add("/receiverAddress",ReceiverAddress.class);
+//        add("/receiverAddress",ReceiverAddress.class);
         add("/classfeedback",ClassFeedBack.class);
-        add("/buyInstrument",BuyInsOrder.class);
+//        add("/buyInstrument",BuyInsOrder.class);
         add("/complaint",Complaint.class);
 
         add("/feedback",StudentFeedback.class);
+        add("/insdetail",ShowInstrumentDetail.class);
+        add("/calendar",Calendar.class);
+        add("/selectadd",SelectAddress.class);
+        add("/deleteAddress",DeleteReceiverAddress.class);
     }
 }

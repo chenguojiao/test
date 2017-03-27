@@ -20,7 +20,7 @@ public class ReservationOrder extends BaseController {
         StringBuilder jsonstr = new StringBuilder();
         BufferedReader reader = null;
         String line = null;
-        int user_id = 0;
+        int user_id = 1;
         JSONObject jsonobj = null;
 
 
@@ -44,10 +44,12 @@ public class ReservationOrder extends BaseController {
         }catch (Exception e) {
             System.out.println("解析json失败");
         }
-        String sql = "select * from classOrder where userId = "+"\'" + user_id + "\'";
+        System.out.println(user_id);
+        String sql = "select * from classOrder where userId = " + "\'" + user_id + "\'";
         List<Record> class_ides = Db.find(sql);
         ReservationList reservationList = new ReservationList();
         List<ShowReservationJson> list = reservationList.getList();
+        System.out.println(class_ides.size());
         for (int i=0;i<class_ides.size();i++){
             Record class_message = class_ides.get(i);
             ShowReservationJson showReservationJson = new ShowReservationJson();
@@ -55,7 +57,7 @@ public class ReservationOrder extends BaseController {
              //double class_price =class_message.getDouble("price");
              String date = class_message.getStr("date");
              int situation = class_message.getInt("situation");
-            String sql2 = "select * from teacher where classId ="+String.valueOf(class_id);
+            String sql2 = "select * from teacher where classId ="+ "\'" + class_id + "\'";
             List<Record> teachers = Db.find(sql2);
             Record teacher = teachers.get(0);
             String teacher_name = teacher.getStr("teacherName");

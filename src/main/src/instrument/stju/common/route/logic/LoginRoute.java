@@ -13,12 +13,13 @@ public class LoginRoute extends Routes {
         add("/", LoginController.class);
         add("/regist", Regist.class);
         add("/changeheadicon", Chicon.class);
-        add("/feedback", ClassFeedBack.class);
+//        add("/feedback", ClassFeedBack.class);
         add("/receiverAddress", ReceiverAddress.class);
         add("/deleteReceiverAddress", DeleteReceiverAddress.class);
         add("/buyInstrument", BuyInstrument.class);
         add("/uploadFile",PostFileTest.class);
         add("/login",Login.class);
+        add("/payorder",ClassPayOrder.class);
 
     }
 }

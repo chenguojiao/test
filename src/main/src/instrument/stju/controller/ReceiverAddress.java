@@ -59,9 +59,16 @@ public class ReceiverAddress extends BaseController {
 
          else {
 
-            Record receiverAddress = new Record().set("userId", user_id).set("address", address).set("tel", tel).set("receiver", receiver);
+            Record receiverAddress = new Record().set("userId", user_id)
+                    .set("address", address).set("tel", tel).set("receiver", receiver);
             Db.save("receiverAddress", receiverAddress);
+            String sql1 = "select * from receiverAddress where address =" +
+                    ""+"\'"+address+"\'"+" and userId = "+ "\'" + user_id + "\'";
+            String sql3 = " and tel = "+"\'"+tel+"\'"+" and receiver ="+"\'"+receiver+"\'";
+            List<Record> recordList = Db.find(sql1+sql3);
+            Record record = recordList.get(0);
             ra.setResult("yes");
+            ra.setReceiverAddressId(record.getInt("id"));
 //            ra.setReceiverAddressId(receiverAddress.getInt("id"));
             Gson gson = new Gson();
             renderText(gson.toJson(ra));

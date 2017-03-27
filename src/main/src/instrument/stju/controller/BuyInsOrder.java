@@ -39,7 +39,7 @@ public class BuyInsOrder extends BaseController {
         }
 
 
-        String sql = "select * from insOrder where usrId ="+String.valueOf(user_id);
+        String sql = "select * from insOrder where usrId =" + "\'" + user_id + "\'";
         OrderList orderList = new OrderList();
         List<InsList>  insList = orderList.getOrder_list();
 
@@ -48,7 +48,7 @@ public class BuyInsOrder extends BaseController {
          for (int i =0;i<orders_id.size();i++){
              Record insOrder = orders_id.get(i);
              int order_id = insOrder.getInt("id");
-             String sql1 = "select * from orderIns where orderId ="+String.valueOf(order_id);
+             String sql1 = "select * from insOrder where usrId =" + "\'" + user_id + "\'";
              List<Record> ins_ids = Db.find(sql1);
              InsList infolist = new InsList();
              List<InsInfo>  info = infolist.getList();
