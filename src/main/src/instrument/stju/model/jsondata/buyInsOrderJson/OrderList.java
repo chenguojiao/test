@@ -14,6 +14,7 @@ public class OrderList {
     }
 
     public void setOrder_list(List<InsList> order_list) {
+
         this.order_list = order_list;
     }
     public OrderList(){

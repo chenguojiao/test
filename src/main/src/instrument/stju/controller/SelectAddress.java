@@ -47,17 +47,25 @@ public class SelectAddress extends BaseController {
         System.out.println("³¤¶È£º"+ info.size());
         SelectAddressJson sJson = new SelectAddressJson();
         List<ContentJson> Content = sJson.getContent();
-        ContentJson cJson = new ContentJson();
+
         for (int i = 0;i < info.size();i++) {
+            ContentJson cJson = new ContentJson();
             Record record = info.get(i);
             String recipient = record.getStr("receiver");
             String telephone = record.getStr("tel");
             String address = record.getStr("address");
-            System.out.println("address£º"+ address);
+
             cJson.setRecipient(recipient);
             cJson.setTelephone(telephone);
             cJson.setAddress(address);
             Content.add(cJson);
+            System.out.println("Content:"+ Content.get(i).getAddress()
+                    +Content.get(i).getRecipient());
+
+        }
+        for (int j = 0;j < Content.size();j++){
+            System.out.println("Content:"+ Content.get(j).getAddress()
+                    +Content.get(j).getRecipient()+Content.get(j).getTelephone());
         }
         Gson gson = new Gson();
         renderText(gson.toJson(sJson));

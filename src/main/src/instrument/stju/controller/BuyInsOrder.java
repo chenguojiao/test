@@ -58,15 +58,15 @@ public class BuyInsOrder extends BaseController {
              infolist.setPrice(insOrder.getDouble("price"));
              infolist.setSituation(insOrder.getStr("situation"));
 
-             for (int j=0;j<ins_ids.size();j++){
-                 Record order_ins = ins_ids.get(j);
+//             for (int j=0;j<ins_ids.size();j++){
+                 Record order_ins = ins_ids.get(i);
                  System.out.println(order_ins.getInt("insId"));
 //                 int ins_id = order_ins.getInt("insId");
                  //double class_price =class_message.getDouble("price");
 //                 String sql2 = "select * from instrument where id ="+ "\'" + ins_id + "\'";
-                 Record instrument = Db.findById("instrument",order_ins.getInt("id"));
+                 Record instrument = Db.findById("instrument",order_ins.getInt("insId"));
                  // Record instrument = Db.findById("instrument",2);
-
+                 System.out.println(instrument.getStr("name"));
                  InsInfo insInfo = new InsInfo();
                  insInfo.setName(instrument.getStr("name"));
                  insInfo.setNow_price(instrument.getInt("nowPrice"));
@@ -78,7 +78,7 @@ public class BuyInsOrder extends BaseController {
                   info.add(insInfo);
 
 
-             }
+//             }
 
        insList.add(infolist);
 

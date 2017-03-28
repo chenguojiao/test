@@ -13,8 +13,9 @@ public class SelectAddressJson {
         return Content;
     }
 
-    public void setContent(List<ContentJson> content) {
-        Content = content;
+    public void setContent(List<ContentJson> Content) {
+
+        this.Content = Content;
     }
 
     public SelectAddressJson() {
