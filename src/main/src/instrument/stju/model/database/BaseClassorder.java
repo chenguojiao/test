@@ -81,11 +81,11 @@ public abstract class BaseClassorder<M extends BaseClassorder<M>> extends Model<
 		return get("date");
 	}
 
-	public void setSituation(java.lang.Integer situation) {
+	public void setSituation(java.lang.String situation) {
 		set("situation", situation);
 	}
 
-	public java.lang.Integer getSituation() {
+	public java.lang.String getSituation() {
 		return get("situation");
 	}
 

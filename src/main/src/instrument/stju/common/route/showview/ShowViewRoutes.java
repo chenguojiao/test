@@ -29,6 +29,6 @@ public class ShowViewRoutes extends Routes {
         add("/insdetail",ShowInstrumentDetail.class);
         add("/calendar",Calendar.class);
         add("/selectadd",SelectAddress.class);
-        add("/deleteAddress",DeleteReceiverAddress.class);
+        add("/deleteaddress",DeleteReceiverAddress.class);
     }
 }

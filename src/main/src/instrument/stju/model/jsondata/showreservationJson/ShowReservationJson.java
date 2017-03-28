@@ -5,7 +5,7 @@ package instrument.stju.model.jsondata.showreservationJson;
  */
 public class ShowReservationJson {
     String date;
-    int situation;
+    String situation;
     String class_name;
     String teacher_name;
     String class_pic_url;
@@ -20,11 +20,11 @@ public class ShowReservationJson {
         this.date = date;
     }
 
-    public int getSituation() {
+    public String getSituation() {
         return situation;
     }
 
-    public void setSituation(int situation) {
+    public void setSituation(String situation) {
         this.situation = situation;
     }
 

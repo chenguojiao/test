@@ -6,7 +6,7 @@ import java.util.List;
  * Created by huangzhiwei on 16/11/7.
  */
 public class FirmOrder {
-    private List<InsOrder> orderslist;
+//    private List<InsOrder> orderslist;
     private int user_id;
 
     public int getUser_id() {
@@ -25,6 +25,25 @@ public class FirmOrder {
     String situation;
     String date;
 
+    int ins_id;
+    String attribute;
+
+
+    public int getIns_id() {
+        return ins_id;
+    }
+
+    public void setIns_id(int ins_id) {
+        this.ins_id = ins_id;
+    }
+
+    public String getArtibute() {
+        return attribute;
+    }
+
+    public void setArtibute(String artibute) {
+        this.attribute = artibute;
+    }
 
     public String getSituation() {
         return situation;
@@ -66,13 +85,13 @@ public class FirmOrder {
         this.price = price;
     }
 
-    public List<InsOrder> getOrderslist() {
-        return orderslist;
-    }
+//    public List<InsOrder> getOrderslist() {
+//        return orderslist;
+//    }
 
-    public void setOrderslist(List<InsOrder> orderslist) {
-        this.orderslist = orderslist;
-    }
+//    public void setOrderslist(List<InsOrder> orderslist) {
+//        this.orderslist = orderslist;
+//    }
 
     public int getReceiverAddressID() {
         return receiverAddressID;

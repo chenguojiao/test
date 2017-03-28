@@ -27,6 +27,7 @@ public class ClassPayOrder extends BaseController {
         int Method = 0;
         String Date = null;
         String Course = null;
+        String Situation = null;
 
         while ((line = reader.readLine()) != null) {
             jsonstr.append(line);
@@ -46,6 +47,7 @@ public class ClassPayOrder extends BaseController {
             Method = jsonobj.getInt("Method");
             Date = jsonobj.getString("Date");
             Course = jsonobj.getString("Course");
+            Situation = jsonobj.getString("Situation");
         } catch (Exception e) {
 
         }
@@ -53,7 +55,7 @@ public class ClassPayOrder extends BaseController {
         Record info = new Record().set("userId", user_id).set("classId", Class_id)
                 .set("ordernum", Ordernum).set("tel",Telephone).set("name",Name)
                 .set("price",Price).set("method",Method).set("date",Date)
-                .set("className",Course);
+                .set("className",Course).set("situation",Situation);
         Db.save("classOrder", info);
 //        String getid = "select * from userinfo where username =" + "\'" + username + "\'";
 //        List<Record> userid = Db.find(getid);

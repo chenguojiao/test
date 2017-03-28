@@ -7,6 +7,7 @@ import instrument.stju.controller.BaseController;
 import instrument.stju.model.jsondata.buyInsOrderJson.InsInfo;
 import instrument.stju.model.jsondata.buyInsOrderJson.InsList;
 import instrument.stju.model.jsondata.buyInsOrderJson.OrderList;
+import instrument.stju.model.jsondata.showreservationJson.ShowReservationJson;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -53,14 +54,17 @@ public class BuyInsOrder extends BaseController {
              InsList infolist = new InsList();
              List<InsInfo>  info = infolist.getList();
              infolist.setDate(insOrder.getStr("date"));
-             infolist.setFreigh(insOrder.getDouble("freight"));
+//             infolist.setFreigh(insOrder.getDouble("freight"));
              infolist.setPrice(insOrder.getDouble("price"));
              infolist.setSituation(insOrder.getStr("situation"));
 
              for (int j=0;j<ins_ids.size();j++){
                  Record order_ins = ins_ids.get(j);
                  System.out.println(order_ins.getInt("insId"));
-                 Record instrument = Db.findById("instrument",order_ins.getInt("insId"));
+//                 int ins_id = order_ins.getInt("insId");
+                 //double class_price =class_message.getDouble("price");
+//                 String sql2 = "select * from instrument where id ="+ "\'" + ins_id + "\'";
+                 Record instrument = Db.findById("instrument",order_ins.getInt("id"));
                  // Record instrument = Db.findById("instrument",2);
 
                  InsInfo insInfo = new InsInfo();

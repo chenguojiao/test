@@ -41,6 +41,8 @@ public class ReservationOrder extends BaseController {
             user_id = jsonobj.getInt("user_id");
 
 
+
+
         }catch (Exception e) {
             System.out.println("解析json失败");
         }
@@ -56,7 +58,7 @@ public class ReservationOrder extends BaseController {
              int class_id = class_message.getInt("classId");
              //double class_price =class_message.getDouble("price");
              String date = class_message.getStr("date");
-             int situation = class_message.getInt("situation");
+             String situation = class_message.getStr("situation");
             String sql2 = "select * from teacher where classId ="+ "\'" + class_id + "\'";
             List<Record> teachers = Db.find(sql2);
             Record teacher = teachers.get(0);

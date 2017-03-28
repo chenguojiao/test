@@ -20,8 +20,8 @@ public class SelectAddress extends BaseController {
         StringBuilder jsonstr = new StringBuilder();
         BufferedReader reader = this.getRequest().getReader();
         String line = null;
-        String user_id = null;
-        String code = null;
+        int user_id = 0;
+        int code = 0;
 
 
         while ((line = reader.readLine()) != null) {
@@ -33,7 +33,8 @@ public class SelectAddress extends BaseController {
         try {
             jsonobj = new JSONObject(js);
 
-            user_id = jsonobj.getString("User_id");
+            user_id = jsonobj.getInt("userId");
+            code = jsonobj.getInt("code");
 
 
         } catch (Exception e) {
@@ -42,7 +43,8 @@ public class SelectAddress extends BaseController {
         String sql = "select * from receiverAddress where userId = "
                 + "\'" + user_id + "\'";
         List<Record> info = Db.find(sql);
-        System.out.println(info.size());
+        System.out.println("id£º"+ user_id);
+        System.out.println("³¤¶È£º"+ info.size());
         SelectAddressJson sJson = new SelectAddressJson();
         List<ContentJson> Content = sJson.getContent();
         ContentJson cJson = new ContentJson();
@@ -51,6 +53,7 @@ public class SelectAddress extends BaseController {
             String recipient = record.getStr("receiver");
             String telephone = record.getStr("tel");
             String address = record.getStr("address");
+            System.out.println("address£º"+ address);
             cJson.setRecipient(recipient);
             cJson.setTelephone(telephone);
             cJson.setAddress(address);

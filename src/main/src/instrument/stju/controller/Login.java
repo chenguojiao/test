@@ -49,7 +49,7 @@ public class Login extends BaseController {
         LoginJson ljson = new LoginJson();
         Gson gson = new Gson();
         if (users.size() > 0) {
-//            int id = users.get(0).getInt("id");
+            int id = users.get(0).getInt("id");
 //            Record userinfo = Db.findById("userinfo", id);
 //            String name = userinfo.getStr("username");
 //            String picUrl = userinfo.getStr("headpic");
@@ -58,7 +58,7 @@ public class Login extends BaseController {
 //            String other = userinfo.getStr("other");
             ljson.setType(0);
             ljson.setResult("true");
-//            ljson.setUser_id(id);
+            ljson.setUser_id(id);
 //            ljson.setUsername(name);
 //            ljson.setPic_URL(picUrl);
 //            ljson.setIntroduction(introduction);

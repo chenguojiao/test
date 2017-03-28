@@ -24,6 +24,12 @@ public abstract class BaseInsorder<M extends BaseInsorder<M>> extends Model<M> i
 	public java.lang.Integer getUsrId() {
 		return get("usrId");
 	}
+	public void setInsId(java.lang.Integer insId) {
+		set("insId", insId);
+	}
+	public java.lang.Integer getInsId() {
+		return get("insId");
+	}
 
 	public void setAddress(java.lang.String address) {
 		set("address", address);
