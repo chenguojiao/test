@@ -9,9 +9,6 @@ import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.Factory;
 
-/**
- * Created by huangzhiwei on 16/11/9.
- */
 public class ShiroTest {
     public static void main(String argus[]) {
         String baseModelOutputDir = PathKit.getWebRootPath() + "/src/main/webapp/upload";
@@ -20,13 +17,13 @@ public class ShiroTest {
         SecurityManager securityManager = factory.getInstance();
         SecurityUtils.setSecurityManager(securityManager);
         Subject currentUser = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken("huang","123");
+        UsernamePasswordToken token = new UsernamePasswordToken("huang", "123");
         try {
 
 
             currentUser.login(token);
             System.out.println("ok");
-        }catch (AuthenticationException e) {
+        } catch (AuthenticationException e) {
             System.out.println("no");
         }
     }
