@@ -3,10 +3,6 @@ package instrument.stju.common.route.logic;
 import com.jfinal.config.Routes;
 import instrument.stju.controller.*;
 
-
-/**
- * Created by huangzhiwei on 16/10/29.
- */
 public class LoginRoute extends Routes {
 
     public void config() {

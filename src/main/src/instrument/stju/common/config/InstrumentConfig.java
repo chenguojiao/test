@@ -10,10 +10,6 @@ import com.jfinal.plugin.c3p0.C3p0Plugin;
 import instrument.stju.common.Interceptor.gloalInterceptor.GloalTimeInterceptor;
 import instrument.stju.common.route.logic.LoginRoute;
 import instrument.stju.common.route.showview.ShowViewRoutes;
-
-/**
- * Created by lenovo on 2016/10/19.
- */
 public class InstrumentConfig extends JFinalConfig {
     Routes routes;
 
