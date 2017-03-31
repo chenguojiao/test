@@ -11,9 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/11/5.
- */
+
 public class DeleteReceiverAddress extends BaseController {
     public void api_deleteAddress() throws IOException {
         StringBuilder jsonstr = new StringBuilder();
@@ -28,7 +26,7 @@ public class DeleteReceiverAddress extends BaseController {
         String receiver = null;
 
 
-        while((line = reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             jsonstr.append(line);
         }
         reader.close();
@@ -46,7 +44,7 @@ public class DeleteReceiverAddress extends BaseController {
             tel = jsonobj.getString("tel");
             receiver = jsonobj.getString("receiver");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             renderText("解析失败");
 
         }
@@ -59,16 +57,11 @@ public class DeleteReceiverAddress extends BaseController {
         List<Record> info = Db.find(sql);
         Record infoList = info.get(0);
         int id = infoList.getInt("id");
-        Db.deleteById("receiverAddress",id);
+        Db.deleteById("receiverAddress", id);
         DeleteReceiverJson deletejson = new DeleteReceiverJson();
         deletejson.setResult("yes");
         Gson gson = new Gson();
         renderText(gson.toJson(deletejson));
-
-
-
-
-
 
 
     }

@@ -6,12 +6,12 @@ import com.jfinal.plugin.activerecord.Record;
 import instrument.stju.model.jsondata.helpCenterJson.HelpCenterJson;
 
 import java.util.List;
-
-/**
- * Created by Administrator on 2017/2/22.
+/*
+ *°ïÖúÖÐÐÄ
  */
+
 public class HelpCenter extends BaseController {
-    public void api_helpcenter(){
+    public void api_helpcenter() {
         HelpCenterJson hJson = new HelpCenterJson();
         String sql = "select * from instrument where id >0";
         List<Record> helpcenter = Db.find(sql);

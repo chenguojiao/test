@@ -9,10 +9,10 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-
-/**
- * Created by huangzhiwei on 16/11/1.
+/*
+ *课程反馈
  */
+
 public class ClassFeedBack extends BaseController {
     public void api_feedBack() throws IOException {
 
@@ -21,14 +21,14 @@ public class ClassFeedBack extends BaseController {
         String line = null;
         int class_id = 0;
         int time_id = 0;
-        String feedback ="";
+        String feedback = "";
         int user_id = 0;
         String date = null;
 
         String code = null;
 
 
-        while((line = reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             jsonstr.append(line);
         }
         reader.close();
@@ -44,15 +44,15 @@ public class ClassFeedBack extends BaseController {
             date = jsonobj.getString("date");
 
             code = jsonobj.getString("code");
-        }catch (Exception e){
+        } catch (Exception e) {
             renderText("解析失败");
 
         }
 
-        Record class_time_feedback = new Record().set("classId",class_id).set("timeId",time_id).set("userId",user_id).set("feedback",feedback).set("date",date);
-        Db.save("classTimeFeedback",class_time_feedback);
+        Record class_time_feedback = new Record().set("classId", class_id).set("timeId", time_id).set("userId", user_id).set("feedback", feedback).set("date", date);
+        Db.save("classTimeFeedback", class_time_feedback);
         FeedBackJson result = new FeedBackJson();
-         result.setResult("ok");
+        result.setResult("ok");
         Gson gson = new Gson();
         renderText(gson.toJson(result));
 

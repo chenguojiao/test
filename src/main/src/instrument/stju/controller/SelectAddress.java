@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/2/27.
+ * 选择地址
  */
 public class SelectAddress extends BaseController {
     public void api_selectadd() throws IOException {
@@ -43,12 +44,12 @@ public class SelectAddress extends BaseController {
         String sql = "select * from receiverAddress where userId = "
                 + "\'" + user_id + "\'";
         List<Record> info = Db.find(sql);
-        System.out.println("id："+ user_id);
-        System.out.println("长度："+ info.size());
+        System.out.println("id：" + user_id);
+        System.out.println("长度：" + info.size());
         SelectAddressJson sJson = new SelectAddressJson();
         List<ContentJson> Content = sJson.getContent();
 
-        for (int i = 0;i < info.size();i++) {
+        for (int i = 0; i < info.size(); i++) {
             ContentJson cJson = new ContentJson();
             Record record = info.get(i);
             String recipient = record.getStr("receiver");
@@ -59,13 +60,13 @@ public class SelectAddress extends BaseController {
             cJson.setTelephone(telephone);
             cJson.setAddress(address);
             Content.add(cJson);
-            System.out.println("Content:"+ Content.get(i).getAddress()
-                    +Content.get(i).getRecipient());
+            System.out.println("Content:" + Content.get(i).getAddress()
+                    + Content.get(i).getRecipient());
 
         }
-        for (int j = 0;j < Content.size();j++){
-            System.out.println("Content:"+ Content.get(j).getAddress()
-                    +Content.get(j).getRecipient()+Content.get(j).getTelephone());
+        for (int j = 0; j < Content.size(); j++) {
+            System.out.println("Content:" + Content.get(j).getAddress()
+                    + Content.get(j).getRecipient() + Content.get(j).getTelephone());
         }
         Gson gson = new Gson();
         renderText(gson.toJson(sJson));

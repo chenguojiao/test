@@ -14,9 +14,10 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/2/23.
+ * 学生反馈
  */
 public class StudentFeedback extends BaseController {
-    public void api_feedback() throws IOException{
+    public void api_feedback() throws IOException {
         StringBuilder jsonstr = new StringBuilder();
         BufferedReader reader = this.getRequest().getReader();
         String line = null;
@@ -24,7 +25,7 @@ public class StudentFeedback extends BaseController {
         int time_id = 0;
 
 
-        while((line = reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             jsonstr.append(line);
         }
         reader.close();
@@ -36,7 +37,7 @@ public class StudentFeedback extends BaseController {
             class_id = jsonobj.getInt("Class_id");
             time_id = jsonobj.getInt("Time_id");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             renderText("解析失败");
 
         }
@@ -50,7 +51,7 @@ public class StudentFeedback extends BaseController {
         List<StudentsFeedBackListJson> Topic = sJson.getTopic();
         StudentsFeedBackListJson info = new StudentsFeedBackListJson();
 //        Record feedback = feedbackInfo.get(0);
-        Record feedbackInfo = Db.findById("classTimeFeedback",time_id);
+        Record feedbackInfo = Db.findById("classTimeFeedback", time_id);
         String date = feedbackInfo.getStr("Date");
         String content = feedbackInfo.getStr("feedback");
         String name = feedbackInfo.getStr("name");

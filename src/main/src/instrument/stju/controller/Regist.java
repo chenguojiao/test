@@ -12,9 +12,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/10/19.
+/*
+ *зЂВс
  */
+
 public class Regist extends BaseController {
     public void api_regist() throws IOException {
 

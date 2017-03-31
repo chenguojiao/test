@@ -12,28 +12,27 @@ import instrument.stju.model.jsondata.albumListJson.Albums;
 import java.util.List;
 
 /**
- * Created by huangzhiwei on 16/10/28.
- *
+ * ÀÖÆ÷albumÕ¹Ê¾
  */
 public class ShowAlbum extends BaseController {
-    public void api_showalbum(){
-     int Albums[] = ConstantData.AlbumTime;
+    public void api_showalbum() {
+        int Albums[] = ConstantData.AlbumTime;
         //Albums albums = new Albums();
         Albums albums = new Albums();
         List<Album> albumList = albums.getAlbums();
-        for ( int i=0;i< Albums.length;i++){
+        for (int i = 0; i < Albums.length; i++) {
 
-            Album album =new Album();
+            Album album = new Album();
 
-            Record  ins_album = Db.findById("insAlbum",Albums[i]);
+            Record ins_album = Db.findById("insAlbum", Albums[i]);
             String album_url = ins_album.getStr("albumUrl");
-           album.setAlbum_url(album_url);
+            album.setAlbum_url(album_url);
             albumList.add(album);
 
 
         }
         Gson gson = new Gson();
-       renderText(gson.toJson(albums));
+        renderText(gson.toJson(albums));
 
 
     }

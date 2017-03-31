@@ -14,9 +14,10 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/2/24.
+ * ÀÖÆ÷ÏêÇé
  */
 public class ShowInstrumentDetail extends BaseController {
-    public void api_insdetail() throws IOException{
+    public void api_insdetail() throws IOException {
         StringBuilder jsonstr = new StringBuilder();
         BufferedReader reader = this.getRequest().getReader();
         String line = null;
@@ -40,7 +41,7 @@ public class ShowInstrumentDetail extends BaseController {
         InstrumentDetailJson instrumentJson = new InstrumentDetailJson();
         List<ProductInfoJson> Product = instrumentJson.getProduct();
         ProductInfoJson productInfo = new ProductInfoJson();
-        List<PicUrlInfoJson>  Pic_url = instrumentJson.getPic_url();
+        List<PicUrlInfoJson> Pic_url = instrumentJson.getPic_url();
         PicUrlInfoJson picUrlInfo = new PicUrlInfoJson();
 
         Record info = Db.findById("instrument", ins_id);

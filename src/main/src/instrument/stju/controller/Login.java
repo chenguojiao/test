@@ -10,9 +10,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/2/13.
+/*
+ *µÇÂ¼
  */
+
 public class Login extends BaseController {
     public void api_login() throws IOException {
         StringBuilder jsonstr = new StringBuilder();
@@ -70,8 +71,8 @@ public class Login extends BaseController {
 //            String sqlName = "select * from userinfo where username =" + "\'" + username + "\'";
 //            List<Record> name = Db.find(sqlName);
 //            if (name.size() > 0) {
-                ljson.setType(1);
-                ljson.setResult("false");
+            ljson.setType(1);
+            ljson.setResult("false");
 //            } else {
 //                ljson.setType(1);
 //                ljson.setResult("false");

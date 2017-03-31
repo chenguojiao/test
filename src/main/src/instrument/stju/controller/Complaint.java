@@ -6,10 +6,10 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-
-/**
- * Created by Administrator on 2017/2/23.
+/*
+ *Õ∂ÀﬂΩ®“È
  */
+
 public class Complaint extends BaseController {
     public void api_complaint() throws IOException {
         StringBuilder jsonstr = new StringBuilder();

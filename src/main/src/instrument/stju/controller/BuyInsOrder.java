@@ -13,10 +13,10 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
-
-/**
- * Created by huangzhiwei on 16/11/3.
+/*
+ *½»Ò×¼ÇÂ¼
  */
+
 public class BuyInsOrder extends BaseController {
     public void api_buyinstrument() throws IOException {
         StringBuilder jsonstr = new StringBuilder();
@@ -24,7 +24,7 @@ public class BuyInsOrder extends BaseController {
         String line = null;
         int user_id = 1;
 
-        while((line = reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             jsonstr.append(line);
         }
         reader.close();
@@ -35,57 +35,56 @@ public class BuyInsOrder extends BaseController {
 
 
             user_id = jsonobj.getInt("user_id");
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
 
         String sql = "select * from insOrder where usrId =" + "\'" + user_id + "\'";
         OrderList orderList = new OrderList();
-        List<InsList>  insList = orderList.getOrder_list();
+        List<InsList> insList = orderList.getOrder_list();
 
 
         List<Record> orders_id = Db.find(sql);
-         for (int i =0;i<orders_id.size();i++){
-             Record insOrder = orders_id.get(i);
-             int order_id = insOrder.getInt("id");
-             String sql1 = "select * from insOrder where usrId =" + "\'" + user_id + "\'";
-             List<Record> ins_ids = Db.find(sql1);
-             InsList infolist = new InsList();
-             List<InsInfo>  info = infolist.getList();
-             infolist.setDate(insOrder.getStr("date"));
+        for (int i = 0; i < orders_id.size(); i++) {
+            Record insOrder = orders_id.get(i);
+            int order_id = insOrder.getInt("id");
+            String sql1 = "select * from insOrder where usrId =" + "\'" + user_id + "\'";
+            List<Record> ins_ids = Db.find(sql1);
+            InsList infolist = new InsList();
+            List<InsInfo> info = infolist.getList();
+            infolist.setDate(insOrder.getStr("date"));
 //             infolist.setFreigh(insOrder.getDouble("freight"));
-             infolist.setPrice(insOrder.getDouble("price"));
-             infolist.setSituation(insOrder.getStr("situation"));
+            infolist.setPrice(insOrder.getDouble("price"));
+            infolist.setSituation(insOrder.getStr("situation"));
 
 //             for (int j=0;j<ins_ids.size();j++){
-                 Record order_ins = ins_ids.get(i);
-                 System.out.println(order_ins.getInt("insId"));
+            Record order_ins = ins_ids.get(i);
+            System.out.println(order_ins.getInt("insId"));
 //                 int ins_id = order_ins.getInt("insId");
-                 //double class_price =class_message.getDouble("price");
+            //double class_price =class_message.getDouble("price");
 //                 String sql2 = "select * from instrument where id ="+ "\'" + ins_id + "\'";
-                 Record instrument = Db.findById("instrument",order_ins.getInt("insId"));
-                 // Record instrument = Db.findById("instrument",2);
-                 System.out.println(instrument.getStr("name"));
-                 InsInfo insInfo = new InsInfo();
-                 insInfo.setName(instrument.getStr("name"));
-                 insInfo.setNow_price(instrument.getInt("nowPrice"));
-                 insInfo.setType(instrument.getStr("type"));
-                 String sql2 = "select * from insPic where insId ="+String.valueOf(instrument.getInt("id"));
-                 List<Record>  imageList = Db.find(sql2);
-                 Record inspic = imageList.get(0);
-                 insInfo.setPic_url(inspic.getStr("picUrl"));
-                  info.add(insInfo);
+            Record instrument = Db.findById("instrument", order_ins.getInt("insId"));
+            // Record instrument = Db.findById("instrument",2);
+            System.out.println(instrument.getStr("name"));
+            InsInfo insInfo = new InsInfo();
+            insInfo.setName(instrument.getStr("name"));
+            insInfo.setNow_price(instrument.getInt("nowPrice"));
+            insInfo.setType(instrument.getStr("type"));
+            String sql2 = "select * from insPic where insId =" + String.valueOf(instrument.getInt("id"));
+            List<Record> imageList = Db.find(sql2);
+            Record inspic = imageList.get(0);
+            insInfo.setPic_url(inspic.getStr("picUrl"));
+            info.add(insInfo);
 
 
 //             }
 
-       insList.add(infolist);
+            insList.add(infolist);
 
-         }
+        }
         Gson gson = new Gson();
         renderText(gson.toJson(orderList));
-
 
 
     }

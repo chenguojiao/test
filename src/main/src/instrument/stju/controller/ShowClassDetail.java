@@ -14,9 +14,10 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/2/23.
+ * ฟฮณฬฯ๊ว้
  */
 public class ShowClassDetail extends BaseController {
-    public void api_classdetail() throws IOException{
+    public void api_classdetail() throws IOException {
         StringBuilder jsonstr = new StringBuilder();
         BufferedReader reader = this.getRequest().getReader();
         String line = null;

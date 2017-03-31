@@ -13,9 +13,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/11/7.
- */
+
 public class BuyInstrument extends BaseController {
     public void api_buyinstrument() throws IOException {
         StringBuilder jsonstr = new StringBuilder();
@@ -24,19 +22,17 @@ public class BuyInstrument extends BaseController {
         String code = null;
 
 
-        while((line = reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             jsonstr.append(line);
         }
         reader.close();
         String js = String.valueOf(jsonstr);
 
 
-
-
-
-       Gson gson = new Gson();
-        Type type= new TypeToken<FirmOrder>(){}.getType();
-        FirmOrder firmOrder = gson.fromJson(js,type);
+        Gson gson = new Gson();
+        Type type = new TypeToken<FirmOrder>() {
+        }.getType();
+        FirmOrder firmOrder = gson.fromJson(js, type);
 //        List<InsOrder> list = firmOrder.getOrderslist();
         double price = firmOrder.getPrice();
         String method = firmOrder.getMethod();
@@ -51,17 +47,17 @@ public class BuyInstrument extends BaseController {
         int ins_id = firmOrder.getIns_id();
         String attribute = firmOrder.getArtibute();
 
-        Record insorder = new Record().set("price",price).set("method",method)
-                .set("reveiverID",receiverAddressID).set("freight",freight);
-        insorder.set("message",message).set("orderNum",ordernum).set("insId",ins_id)
-                .set("situation",situation).set("date",date).set("usrId",user_id);
-        Db.save("insOrder",insorder);
+        Record insorder = new Record().set("price", price).set("method", method)
+                .set("reveiverID", receiverAddressID).set("freight", freight);
+        insorder.set("message", message).set("orderNum", ordernum).set("insId", ins_id)
+                .set("situation", situation).set("date", date).set("usrId", user_id);
+        Db.save("insOrder", insorder);
         Db.update("insOrder", insorder);
 
         int order_id = insorder.getNumber("id").intValue();
-        Record order_ins = new Record().set("orderId",order_id)
-                .set("insId",ins_id).set("attribute",attribute);
-        Db.save("orderIns",order_ins);
+        Record order_ins = new Record().set("orderId", order_id)
+                .set("insId", ins_id).set("attribute", attribute);
+        Db.save("orderIns", order_ins);
         //int order_id = insorder.getInt("id");
        /* String sql = "select * from insorder where id >0";
         List<Record>insorders = Db.find(sql);
@@ -79,6 +75,6 @@ public class BuyInstrument extends BaseController {
 //        }
         ResultFirmOrder resultFirmOrder = new ResultFirmOrder();
         resultFirmOrder.setResult("yes");
-      renderText(gson.toJson(resultFirmOrder));
+        renderText(gson.toJson(resultFirmOrder));
     }
 }

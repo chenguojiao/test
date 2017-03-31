@@ -11,19 +11,17 @@ import java.io.BufferedReader;
 import java.util.List;
 
 /**
- * Created by huangzhiwei on 16/11/8.
+ * 系统消息
  */
 public class ShowSystemMessage extends BaseController {
-    public  void api_showSystemMessage(){
+    public void api_showSystemMessage() {
 
-       StringBuilder jsonstr = new StringBuilder();
+        StringBuilder jsonstr = new StringBuilder();
         BufferedReader reader = null;
         String line = null;
-        int user_id =0;
-        String code ="";
+        int user_id = 0;
+        String code = "";
         JSONObject jsonobj = null;
-
-
 
 
         try {
@@ -37,29 +35,26 @@ public class ShowSystemMessage extends BaseController {
             jsonobj = new JSONObject(js);
             user_id = jsonobj.getInt("user_id");
             code = jsonobj.getString("code");
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("解析json失败");
-         }
+        }
 
-          String sql = "select * from systemMessage where id >0";
+        String sql = "select * from systemMessage where id >0";
         List<Record> systemMessages = Db.find(sql);
         SystemMessageList messageList = new SystemMessageList();
         List<SystemMessageJson> list = messageList.getList();
-        for (int i=0;i<systemMessages.size();i++){
+        for (int i = 0; i < systemMessages.size(); i++) {
             Record systemMessage = systemMessages.get(i);
             SystemMessageJson systemMessageJson = new SystemMessageJson();
             systemMessageJson.setContent(systemMessage.getStr("content"));
             systemMessageJson.setTitle(systemMessage.getStr("title"));
             systemMessageJson.setDate(systemMessage.getStr("date"));
-           list.add(systemMessageJson);
+            list.add(systemMessageJson);
 
 
         }
         Gson gson = new Gson();
         renderText(gson.toJson(messageList));
-
-
-
 
 
     }

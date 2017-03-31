@@ -10,9 +10,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-/**
- * Created by huangzhiwei on 16/11/1.
- */
+
 public class GetHeadIcon extends BaseController {
     public void api_getHeadIcon() throws IOException {
         StringBuilder jsonstr = new StringBuilder();
@@ -22,7 +20,7 @@ public class GetHeadIcon extends BaseController {
         String code = null;
 
 
-        while((line = reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             jsonstr.append(line);
         }
         reader.close();
@@ -34,16 +32,15 @@ public class GetHeadIcon extends BaseController {
             id = jsonobj.getInt("id");
 
             code = jsonobj.getString("code");
-        }catch (Exception e){
+        } catch (Exception e) {
             renderText("解析失败");
 
         }
-        Record userinfo = Db.findById("userinfo",id);
+        Record userinfo = Db.findById("userinfo", id);
         Headpic headpic = new Headpic();
         headpic.setHeadpic(userinfo.getStr("headpic"));
         Gson gson = new Gson();
         renderText(gson.toJson(headpic));
-
 
 
     }

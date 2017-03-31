@@ -14,9 +14,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/10/22.
- */
+
 public class Chicon extends BaseController {
     public void api_chheadpic() throws IOException {
 
@@ -24,7 +22,7 @@ public class Chicon extends BaseController {
         StringBuilder jsonstr = new StringBuilder();
         BufferedReader reader = this.getRequest().getReader();
         String line = null;
-        while((line = reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             jsonstr.append(line);
         }
         reader.close();
@@ -49,20 +47,13 @@ public class Chicon extends BaseController {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        List<Record> users = Db.find("select * from userinfo where id = "+String.valueOf(id));
+        List<Record> users = Db.find("select * from userinfo where id = " + String.valueOf(id));
         Record user = (Record) users.get(0);
-        user.set("headpic",headpic);
-        Db.update("userinfo",user);
+        user.set("headpic", headpic);
+        Db.update("userinfo", user);
         renderText("{\n" +
                 "\"result\":\"yes\"\n" +
                 "}");
-
-
-
-
-
-
-
 
 
     }

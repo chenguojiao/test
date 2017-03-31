@@ -12,26 +12,23 @@ import instrument.stju.model.jsondata.insAndDesJson.Inspics;
 
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/10/29.
- */
 public class InsAndDes extends BaseController {
-    public void api_insdes(){
-     InsList insList = new InsList();
+    public void api_insdes() {
+        InsList insList = new InsList();
         List<Inspics> qinsList = insList.getInspicsList();
-        int  PicAndDes[] = ConstantData.PicAndDes;
-        for (int i =0;i<PicAndDes.length;i++){
+        int PicAndDes[] = ConstantData.PicAndDes;
+        for (int i = 0; i < PicAndDes.length; i++) {
             Inspics inspics = new Inspics();
             List<Inspic> qinspics = inspics.getPics();
 
             int ins_id = PicAndDes[i];
-            List<Record> inspic = Db.find("select * from  insPic where insId ="+String.valueOf(ins_id));
-            for ( int j =0; j<inspic.size();j++){
-             Inspic pic_url = new Inspic();
-                   pic_url.setPic_url(inspic.get(j).getStr("picUrl"));
-                    qinspics.add(pic_url);
+            List<Record> inspic = Db.find("select * from  insPic where insId =" + String.valueOf(ins_id));
+            for (int j = 0; j < inspic.size(); j++) {
+                Inspic pic_url = new Inspic();
+                pic_url.setPic_url(inspic.get(j).getStr("picUrl"));
+                qinspics.add(pic_url);
             }
-            Record instrument = Db.findById("instrument",ins_id);
+            Record instrument = Db.findById("instrument", ins_id);
             inspics.setDes(instrument.getStr("description"));
             inspics.setNow_price(instrument.getInt("nowPrice"));
             inspics.setName(instrument.getStr("name"));
@@ -43,7 +40,6 @@ public class InsAndDes extends BaseController {
 
         Gson gson = new Gson();
         renderText(gson.toJson(insList));
-
 
 
     }

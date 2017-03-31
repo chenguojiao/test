@@ -11,9 +11,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/11/3.
+/*
+ *收货人地址
  */
+
 public class ReceiverAddress extends BaseController {
     public void api_edictAddress() throws IOException {
         StringBuilder jsonstr = new StringBuilder();
@@ -25,8 +26,7 @@ public class ReceiverAddress extends BaseController {
         String receiver = null;
 
 
-
-        while((line = reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             jsonstr.append(line);
         }
         reader.close();
@@ -40,32 +40,30 @@ public class ReceiverAddress extends BaseController {
             address = jsonobj.getString("address");
             tel = jsonobj.getString("tel");
             receiver = jsonobj.getString("receiver");
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
-        ReveiverAddressJson  ra = new ReveiverAddressJson();
+        ReveiverAddressJson ra = new ReveiverAddressJson();
 
         String sql = "select * from receiverAddress where address =" +
-                ""+"\'"+address+"\'"+" and userId = "+ "\'" + user_id + "\'";
-        String sql2 = " and tel = "+"\'"+tel+"\'"+" and receiver ="+"\'"+receiver+"\'";
-        List<Record> records = Db.find(sql+sql2);
-        if (records.size()>0){
+                "" + "\'" + address + "\'" + " and userId = " + "\'" + user_id + "\'";
+        String sql2 = " and tel = " + "\'" + tel + "\'" + " and receiver =" + "\'" + receiver + "\'";
+        List<Record> records = Db.find(sql + sql2);
+        if (records.size() > 0) {
             Record record = records.get(0);
             ra.setResult("no");
             ra.setReceiverAddressId(record.getInt("id"));
             Gson gson = new Gson();
             renderText(gson.toJson(ra));
-        }
-
-         else {
+        } else {
 
             Record receiverAddress = new Record().set("userId", user_id)
                     .set("address", address).set("tel", tel).set("receiver", receiver);
             Db.save("receiverAddress", receiverAddress);
             String sql1 = "select * from receiverAddress where address =" +
-                    ""+"\'"+address+"\'"+" and userId = "+ "\'" + user_id + "\'";
-            String sql3 = " and tel = "+"\'"+tel+"\'"+" and receiver ="+"\'"+receiver+"\'";
-            List<Record> recordList = Db.find(sql1+sql3);
+                    "" + "\'" + address + "\'" + " and userId = " + "\'" + user_id + "\'";
+            String sql3 = " and tel = " + "\'" + tel + "\'" + " and receiver =" + "\'" + receiver + "\'";
+            List<Record> recordList = Db.find(sql1 + sql3);
             Record record = recordList.get(0);
             ra.setResult("yes");
             ra.setReceiverAddressId(record.getInt("id"));

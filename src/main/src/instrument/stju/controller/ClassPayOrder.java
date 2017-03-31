@@ -10,9 +10,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/2/24.
- */
 public class ClassPayOrder extends BaseController {
     public void api_payorder() throws IOException {
         StringBuilder jsonstr = new StringBuilder();
@@ -53,9 +50,9 @@ public class ClassPayOrder extends BaseController {
         }
 //        double price = Double.parseDouble(Price);
         Record info = new Record().set("userId", user_id).set("classId", Class_id)
-                .set("ordernum", Ordernum).set("tel",Telephone).set("name",Name)
-                .set("price",Price).set("method",Method).set("date",Date)
-                .set("className",Course).set("situation",Situation);
+                .set("ordernum", Ordernum).set("tel", Telephone).set("name", Name)
+                .set("price", Price).set("method", Method).set("date", Date)
+                .set("className", Course).set("situation", Situation);
         Db.save("classOrder", info);
 //        String getid = "select * from userinfo where username =" + "\'" + username + "\'";
 //        List<Record> userid = Db.find(getid);
@@ -66,4 +63,4 @@ public class ClassPayOrder extends BaseController {
         renderText(new Gson().toJson(cJson));
     }
 
-    }
+}
