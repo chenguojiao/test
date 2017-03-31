@@ -2,10 +2,7 @@ package instrument.stju.model.jsondata.showClassDetailJson;
 
 import java.io.Serializable;
 
-/**
- * Created by Administrator on 2017/2/23.
- */
-public class Class_detail implements Serializable{
+public class Class_detail implements Serializable {
     private int Num;
     private String Type;
     private String Date;

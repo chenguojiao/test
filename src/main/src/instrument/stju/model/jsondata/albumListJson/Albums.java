@@ -5,9 +5,7 @@ package instrument.stju.model.jsondata.albumListJson;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/10/28.
- */
+
 public class Albums {
     private List<Album> albums;
 
@@ -15,7 +13,7 @@ public class Albums {
         return albums;
     }
 
-    public Albums(){
+    public Albums() {
         albums = new ArrayList<Album>();
     }
 }

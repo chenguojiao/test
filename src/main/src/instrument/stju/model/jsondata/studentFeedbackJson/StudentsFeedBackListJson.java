@@ -1,8 +1,5 @@
 package instrument.stju.model.jsondata.studentFeedbackJson;
 
-/**
- * Created by Administrator on 2017/2/23.
- */
 public class StudentsFeedBackListJson {
     private int Topic_id;
     private String Content;

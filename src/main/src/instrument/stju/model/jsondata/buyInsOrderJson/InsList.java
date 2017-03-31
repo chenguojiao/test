@@ -3,13 +3,10 @@ package instrument.stju.model.jsondata.buyInsOrderJson;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/11/3.
- */
 public class InsList {
     String date;
     double price;
-    List<InsInfo> list ;
+    List<InsInfo> list;
     String situation;
     double freigh;
 
@@ -44,7 +41,8 @@ public class InsList {
     public void setList(List<InsInfo> list) {
         this.list = list;
     }
-    public InsList(){
+
+    public InsList() {
         list = new ArrayList<InsInfo>();
     }
 

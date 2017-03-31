@@ -1,9 +1,6 @@
 package instrument.stju.model.jsondata.complaintJson;
 
-/**
- * Created by Administrator on 2017/2/23.
- */
-public class ComplaintJson  {
+public class ComplaintJson {
     private String Result;
 
     public String getResult() {

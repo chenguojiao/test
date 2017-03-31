@@ -1,8 +1,5 @@
 package instrument.stju.model.jsondata.helpCenterJson;
 
-/**
- * Created by Administrator on 2017/2/22.
- */
 public class HelpCenterJson {
     private int id;
     private String Content;

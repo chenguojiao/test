@@ -1,8 +1,5 @@
 package instrument.stju.model.jsondata.showInstrument;
 
-/**
- * Created by huangzhiwei on 16/10/28.
- */
 public class Insinfo {
     private String name;
     private int pre_price;
@@ -10,7 +7,7 @@ public class Insinfo {
     private String type;
     private String pic_url;
     private int id;
-    private  String des;
+    private String des;
 
     public String getName() {
         return name;

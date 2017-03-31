@@ -5,11 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/10/26.
- */
 public class Classes implements Serializable {
-    private int maxtime ;
+    private int maxtime;
     private List<Class_Message> list;
 
     public int getMaxtime() {
@@ -27,7 +24,8 @@ public class Classes implements Serializable {
     public void setList(List<Class_Message> list) {
         this.list = list;
     }
-    public  Classes(){
+
+    public Classes() {
         list = new ArrayList<Class_Message>();
     }
 }

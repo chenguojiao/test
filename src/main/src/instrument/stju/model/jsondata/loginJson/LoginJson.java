@@ -1,8 +1,5 @@
 package instrument.stju.model.jsondata.loginJson;
 
-/**
- * Created by Administrator on 2017/2/15.
- */
 public class LoginJson {
     private String Result;
     private int Type;

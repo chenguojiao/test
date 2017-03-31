@@ -3,9 +3,6 @@ package instrument.stju.model.jsondata.instrumentDetailJson;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/2/24.
- */
 public class InstrumentDetailJson {
 
     private int Instrument_id;

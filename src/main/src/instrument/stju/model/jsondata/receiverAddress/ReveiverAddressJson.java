@@ -1,10 +1,7 @@
 package instrument.stju.model.jsondata.receiverAddress;
 
-/**
- * Created by huangzhiwei on 16/11/3.
- */
 public class ReveiverAddressJson {
-    String result ;
+    String result;
     int receiverAddressId;
 
     public String getResult() {

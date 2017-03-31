@@ -3,9 +3,6 @@ package instrument.stju.model.jsondata.showClassDetailJson;
 
 import java.io.Serializable;
 
-/**
- * Created by Administrator on 2017/2/23.
- */
 public class Teacher {
     private String Teacher_pic_URL;
     private String Teacher_name;

@@ -1,11 +1,8 @@
 package instrument.stju.model.jsondata.showSystemMessage;
 
-/**
- * Created by huangzhiwei on 16/11/8.
- */
 public class SystemMessageJson {
     private String title;
-    private String  content;
+    private String content;
     private String date;
 
     public String getTitle() {

@@ -2,11 +2,9 @@ package instrument.stju.model.jsondata.firm_ins_order;
 
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/11/7.
- */
+
 public class FirmOrder {
-//    private List<InsOrder> orderslist;
+    //    private List<InsOrder> orderslist;
     private int user_id;
 
     public int getUser_id() {

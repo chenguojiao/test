@@ -1,8 +1,6 @@
 package instrument.stju.model.jsondata.getHeadIconJson;
 
-/**
- * Created by huangzhiwei on 16/11/1.
- */
+
 public class Headpic {
     private String headpic;
 

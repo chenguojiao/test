@@ -2,9 +2,6 @@ package instrument.stju.model.jsondata.showClassJson;
 
 import java.io.Serializable;
 
-/**
- * Created by huangzhiwei on 16/10/26.
- */
 public class Class_Message implements Serializable {
     private String class_name;
     private String class_pic_url;

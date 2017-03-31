@@ -1,8 +1,6 @@
 package instrument.stju.model.jsondata.buyInsOrderJson;
 
-/**
- * Created by huangzhiwei on 16/11/3.
- */
+
 public class InsInfo {
     String pic_url;
     int now_price;

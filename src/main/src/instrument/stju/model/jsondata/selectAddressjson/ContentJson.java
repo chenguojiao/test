@@ -1,8 +1,5 @@
 package instrument.stju.model.jsondata.selectAddressjson;
 
-/**
- * Created by Administrator on 2017/2/27.
- */
 public class ContentJson {
     private String Recipient;
     private String Telephone;

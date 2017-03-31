@@ -1,8 +1,6 @@
 package instrument.stju.model.jsondata.deleteReceiverJson;
 
-/**
- * Created by huangzhiwei on 16/11/5.
- */
+
 public class DeleteReceiverJson {
     String result;
 

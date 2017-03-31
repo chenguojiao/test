@@ -1,8 +1,5 @@
 package instrument.stju.model.jsondata.albumListJson;
 
-/**
- * Created by huangzhiwei on 16/10/28.
- */
 public class Album {
     private String album_url;
 

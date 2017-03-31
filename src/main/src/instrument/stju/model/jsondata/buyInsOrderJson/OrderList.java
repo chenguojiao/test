@@ -3,9 +3,6 @@ package instrument.stju.model.jsondata.buyInsOrderJson;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/11/3.
- */
 public class OrderList {
     List<InsList> order_list;
 
@@ -17,7 +14,8 @@ public class OrderList {
 
         this.order_list = order_list;
     }
-    public OrderList(){
+
+    public OrderList() {
         order_list = new ArrayList<InsList>();
     }
 }

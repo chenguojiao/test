@@ -6,10 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/2/23.
- */
-public class ShowClassDetailJson implements Serializable{
+public class ShowClassDetailJson implements Serializable {
     private int Class_id;
     private String Class_name;
     private String Class_level;
@@ -22,7 +19,7 @@ public class ShowClassDetailJson implements Serializable{
     private List<Teacher> Teacher;
     private List<Class_detail> Class_detail;
 
-    public ShowClassDetailJson(){
+    public ShowClassDetailJson() {
         Class_detail = new ArrayList<instrument.stju.model.jsondata.showClassDetailJson.Class_detail>();
         Teacher = new ArrayList<instrument.stju.model.jsondata.showClassDetailJson.Teacher>();
     }

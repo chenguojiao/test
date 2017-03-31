@@ -1,8 +1,5 @@
 package instrument.stju.model.jsondata.showreservationJson;
 
-/**
- * Created by huangzhiwei on 16/11/5.
- */
 public class ShowReservationJson {
     String date;
     String situation;

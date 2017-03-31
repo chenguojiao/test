@@ -4,9 +4,6 @@ package instrument.stju.model.jsondata.insAndDesJson;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/10/29.
- */
 public class InsList {
     private List<Inspics> inspicsList;
 
@@ -17,7 +14,8 @@ public class InsList {
     public void setInspicsList(List<Inspics> inspicsList) {
         this.inspicsList = inspicsList;
     }
-    public InsList(){
+
+    public InsList() {
         inspicsList = new ArrayList<Inspics>();
     }
 }

@@ -1,8 +1,5 @@
 package instrument.stju.model.jsondata.calendarJson;
 
-/**
- * Created by Administrator on 2017/2/27.
- */
 public class CalendarJson {
     private String Date;
     private String Time;

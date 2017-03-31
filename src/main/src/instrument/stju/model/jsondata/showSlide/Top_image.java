@@ -2,9 +2,6 @@ package instrument.stju.model.jsondata.showSlide;
 
 import java.io.Serializable;
 
-/**
- * Created by huangzhiwei on 16/10/26.
- */
 public class Top_image implements Serializable {
     private String top_image;
     private String class_name;

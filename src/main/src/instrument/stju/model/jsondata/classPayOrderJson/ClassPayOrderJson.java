@@ -1,8 +1,6 @@
 package instrument.stju.model.jsondata.classPayOrderJson;
 
-/**
- * Created by Administrator on 2017/2/24.
- */
+
 public class ClassPayOrderJson {
     private String Result;
 

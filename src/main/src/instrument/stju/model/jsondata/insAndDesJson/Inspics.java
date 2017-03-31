@@ -5,12 +5,9 @@ import instrument.stju.model.jsondata.insAndDesJson.Inspic;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by huangzhiwei on 16/10/29.
- */
 public class Inspics {
-     private   List<Inspic> pics ;
-    private  String des;
+    private List<Inspic> pics;
+    private String des;
     private int now_price;
     private String name;
 
@@ -46,7 +43,8 @@ public class Inspics {
     public void setPics(List<Inspic> pics) {
         this.pics = pics;
     }
-    public Inspics(){
+
+    public Inspics() {
         this.pics = new ArrayList<Inspic>();
     }
 }
